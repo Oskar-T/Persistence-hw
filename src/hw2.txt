@@ -1,0 +1,20 @@
+create table movie (
+ id int primary key,
+ name nvarchar(80) not null,
+ year_of_publication int not null,
+ director director references director(first_name));
+
+create table director (
+  first_name nvarchar(80) not null,
+  last_name nvarchar(80) not null);
+
+
+insert into movie (name, year_of_publication, director) values
+('The Master and Margarita', 2011, 'Yuri Kara');
+
+insert into director(first_name, last_name) values
+('Yuri', 'Kara');
+
+select * from movie
+
+//result : The Master and Margarita|2011|Yuri Kara
